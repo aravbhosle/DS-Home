@@ -51,13 +51,9 @@ public class BinaryTreeNode {
 		}
 		
 		if(root.left == null && root.right == null) {
-			System.out.println("Val: " + root.getVal() + " is a leaf");
-		} else if(root.left == null) {
-			System.out.println("Val: "+ root.getVal() + " Left: null" + " Right: " + root.right.val);
-		} else if(root.right == null) {
-			System.out.println("Val: "+ root.getVal() + " Left: " + root.left.getVal() + " Right: null");
+			System.out.println("Val: " + root + " is a leaf");
 		} else {
-			System.out.println("Val: "+ root.getVal() + " Left: " + root.left.getVal() + " Right: " + root.right.val);
+			System.out.println("Val: "+ root + " Left: " + root.left + " Right: " + root.right);
 		}
 		
 	}
@@ -77,6 +73,9 @@ public class BinaryTreeNode {
 		this.val = num;
 	}
 	
-	
+    public String toString() {
+    	return Integer.toString(val);
+    }
+
 	
 }

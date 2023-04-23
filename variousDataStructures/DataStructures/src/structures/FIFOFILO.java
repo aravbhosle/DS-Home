@@ -15,7 +15,7 @@ public class FIFOFILO {
 		n2.setLeft(n4);
 		n2.setRight(n5);
 		n3.setLeft(n6);
-		n3.setRight(n7);
+//		n3.setRight(n7);
 		
 		BinaryTreeNode.print(n1);
 	}
