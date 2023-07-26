@@ -76,6 +76,48 @@ public class BinaryTreeNode {
     public String toString() {
     	return Integer.toString(val);
     }
+    
+    public BinaryTreeNode delete(BinaryTreeNode n, int val) {
+    	if(n == null) {
+    		return null;
+    	}
+    	if(val < n.val) {
+    		n.left = delete(n.left, val);
+    	} else if (val > n.val) {
+    		n.right = delete(n.right, val);
+    	} else {
+    		if(n.left == null || n.right == null) {
+    			BinaryTreeNode temp = null;
+    			temp = n.left == null ? n.right : n.left;
+    			
+    			if(temp == null) {
+    				return null;
+    			} else {
+    				return n;
+    			}
+    		} else {
+    			BinaryTreeNode successor = getSuccessor(n);
+    			n.val = successor.val;
+    			n.right = delete(n.right, successor.val);
+    			return n;
+    		}
+    	}
+    	return n;
+    }
+    
+    public BinaryTreeNode getSuccessor(BinaryTreeNode n) {
+    	if(n==null) {
+    		return null;
+    	}
+    	
+    	BinaryTreeNode temp = n.right;
+    	
+    	while(temp.left != null) {
+    		temp = temp.left;
+    	}
+    	
+    	return temp;
+    }
 
 	
 }
